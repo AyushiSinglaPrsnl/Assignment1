@@ -14,27 +14,28 @@ pipeline {
           }
       }
 
-    stage ('Compile & Package') {      
-      steps{
-        script{
+      stage('Compile & Package') {      
+        steps{
+          script{
                 sh """
                 mvn clean compile -DskipTests=true
                 mvn clean package -DskipTests=true
                 """
         }  
       }                   
-   }stage ('Build') {      
-      steps{
-        script{
+      }
+      stage('Build') {      
+        steps{
+          script{
                 sh """
                 mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -B -V
                 """
         }  
       }                   
-   }
-   stage ('Deploy') {      
-      steps{
-        script{
+      }
+      stage('Deploy') {      
+        steps{
+          script{
                 sh """
                 mvn -V -U -e clean deploy -Dsurefire.useFile=false
                 """
