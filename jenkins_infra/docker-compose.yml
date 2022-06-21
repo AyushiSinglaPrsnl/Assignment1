@@ -1,0 +1,13 @@
+version: '3'
+services:
+    jenkins:
+            container_name: jenkins
+            image: jenkins:v1
+            user: 0:0
+            ports:
+            - 8080:8080
+            - 50000:50000
+            - 443:8443
+            volumes:
+            - /mnt/docker-data/jenkins:/var/jenkins_home:z
+            restart: always
