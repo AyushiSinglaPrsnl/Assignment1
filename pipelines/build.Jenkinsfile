@@ -1,11 +1,15 @@
 pipeline {
    agent any
- 
+
+   tools {
+    maven 'M3'
+   }
+
    stages {
       stage("Git Checkout") {
           steps {
               script {
-                checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jenkins-github-credentials', url: "https://github.com/AyushiSinglaPrsnl/Assignment1.git"]]])
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: "https://github.com/AyushiSinglaPrsnl/Assignment1.git"]]])
               }
           }
       }
