@@ -1,11 +1,6 @@
 pipeline {
    agent any
-
-   Environment {
-       PATH = ""
-   }
-
-    
+ 
    stages {
       stage("Git Checkout") {
           steps {
@@ -23,6 +18,7 @@ pipeline {
                 """
         }  
       }                   
+   }
    }
    post {
        always {
